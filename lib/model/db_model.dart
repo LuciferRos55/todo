@@ -1,6 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import './todo_model.dart';
+import 'dart:math';
 
 class DatabaseConnect{
   Database? _database;
@@ -27,7 +28,7 @@ class DatabaseConnect{
     ''');
   }
 
-  //ADDD
+  //ADD
   Future<void> insertTodo(Todo todo) async{
     final  db = await database; //connectdb
     await db.insert('todo',
