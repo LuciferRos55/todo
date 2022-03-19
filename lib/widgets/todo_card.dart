@@ -14,8 +14,8 @@ class Todocard extends StatefulWidget {
     required this.title,
     required this.isChecked,
     required this.creationDate,
-    required this.deleteFunction,
     required this.insertFunction,
+    required this.deleteFunction,
     Key? key}) : super(key: key);
 
   @override
@@ -44,7 +44,7 @@ class _TodocardState extends State<Todocard> {
                   widget.isChecked = value!;
                 });
                 anotherTodo.isChecked = value!;
-                widget.insertFunction(anotherTodo);
+                widget.deleteFunction(anotherTodo);
               },
             ),
           ),
@@ -72,7 +72,7 @@ class _TodocardState extends State<Todocard> {
             ),
           ),
           IconButton(onPressed: (){
-            widget.deleteFunction(anotherTodo);
+            widget.insertFunction(anotherTodo);
           }, icon: const Icon(Icons.close),
           ),
         ],
