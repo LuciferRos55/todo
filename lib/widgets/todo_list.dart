@@ -28,8 +28,8 @@ class Todolist extends StatelessWidget {
                   title: data[i].title,
                   isChecked: data[i].isChecked,
                   creationDate: data[i].creationDate,
-                  deleteFunction: insertFunction,
-                  insertFunction: deleteFunction),
+                  deleteFunction: deleteFunction,
+                  insertFunction: insertFunction),
           );
         },
       ),

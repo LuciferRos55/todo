@@ -2,15 +2,21 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:todo/widgets/notification_service.dart';
+import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest.dart' as tz;
 import '../model/todo_model.dart';
 
 class User_input extends StatelessWidget {
+
   final textController = TextEditingController();
   final Function insertFunction;
   User_input({required this.insertFunction, Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    tz.initializeTimeZones();
     DateTime selectedDateTime;
     selectedDateTime = DateTime.now();
     return Container(
@@ -48,6 +54,7 @@ class User_input extends StatelessWidget {
                   creationDate: selectedDateTime,
                   isChecked: false, id: null,
                 );
+                NotificationService().showNotifications(myTodo.title, myTodo.creationDate.subtract(const Duration(minutes: 10)));
                 insertFunction(myTodo);
               };
             },

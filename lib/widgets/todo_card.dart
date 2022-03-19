@@ -44,7 +44,7 @@ class _TodocardState extends State<Todocard> {
                   widget.isChecked = value!;
                 });
                 anotherTodo.isChecked = value!;
-                widget.deleteFunction(anotherTodo);
+                widget.insertFunction(anotherTodo);
               },
             ),
           ),
@@ -72,7 +72,7 @@ class _TodocardState extends State<Todocard> {
             ),
           ),
           IconButton(onPressed: (){
-            widget.insertFunction(anotherTodo);
+            widget.deleteFunction(anotherTodo);
           }, icon: const Icon(Icons.close),
           ),
         ],
